@@ -19,6 +19,7 @@ public class StudentController {
     public void save(
             @RequestBody Student student
     ) {
+        System.out.println(student);
         service.saveStudent(student);
     }
 

@@ -1,4 +1,4 @@
-package com.student;
+package com.school;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,14 +11,11 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@ToString
-public class Student {
+public class School {
 
     @Id
     @GeneratedValue
     private Integer id;
-    private String firstname;
-    private String lastname;
+    private String name;
     private String email;
-    private Integer schoolId;
 }
