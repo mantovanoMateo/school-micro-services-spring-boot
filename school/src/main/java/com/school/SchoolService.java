@@ -1,5 +1,6 @@
 package com.school;
 
+import com.school.client.StudentClient;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.stereotype.Service;
@@ -11,6 +12,8 @@ import java.util.List;
 public class SchoolService {
 
     private final SchoolRepository repository;
+
+    private final StudentClient client;
 
     public void saveSchool(School school) {
         repository.save(school);
@@ -29,8 +32,12 @@ public class SchoolService {
                                 .build()
                 );
 
-        //var students = null;
+        var students = client.findAllStudentsBySchool(schoolId);
 
-        return null;
+        return FullSchoolResponse.builder()
+                .name(school.getName())
+                .email(school.getName())
+                .students(students)
+                .build();
     }
 }
